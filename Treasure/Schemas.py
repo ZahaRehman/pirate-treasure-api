@@ -30,3 +30,9 @@ class Token(BaseModel):
 
 class TokenData(BaseModel):
     email: Optional[str] = None
+    
+    
+class ShowQuestions(BaseModel):
+    island_id: int
+    question: str
+    
