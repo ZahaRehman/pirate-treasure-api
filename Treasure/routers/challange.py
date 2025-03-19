@@ -13,6 +13,6 @@ router =APIRouter(
     tags=['/challange']
 )
 
-@router.get('/island/{id}',response_model=Schemas.ShowQuestions)
-def show(id : int , db: Session = Depends(get_db)):
-    return challanges.show(id, db)
+@router.get('/tresure/{id}',status_code=200,response_model=Schemas.ShowQuestions)
+def get_Projects_by_id(id, db:Session=Depends(get_db),current_user: Schemas.User=Depends(get_current_user)):
+    return challanges.show(id, db, current_user)

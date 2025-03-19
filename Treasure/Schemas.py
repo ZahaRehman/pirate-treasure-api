@@ -36,3 +36,6 @@ class ShowQuestions(BaseModel):
     island_id: int
     question: str
     
+    class Config():
+        orm_mode= True
+    
