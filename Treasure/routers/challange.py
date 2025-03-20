@@ -70,3 +70,13 @@ def submit_answer(
     
     else:
         return {"message": "Wrong answer! Try again."}
+
+
+@router.post('/')
+def Set_challenge(request : Schemas.setQuestion, db: Session = Depends(get_db)):
+    return challanges.set_challenge(request,db)
+
+
+@router.get("/treasure", status_code=200)
+def get_treasure(db: Session = Depends(get_db), current_user: models.User = Depends(get_current_user)):
+    return challanges.get_treasure(current_user)
