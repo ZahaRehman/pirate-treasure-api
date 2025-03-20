@@ -15,7 +15,7 @@ router = APIRouter(
 )
 
 @router.post('/',response_model=Schemas.ShowUser)
-def create_user(request : Schemas.User, db: Session = Depends(get_db),get_current_user: Schemas.User= Depends(oauth2.get_current_user) ):
+def create_user(request : Schemas.User, db: Session = Depends(get_db)):
     return user.create(request,db)
  
  
