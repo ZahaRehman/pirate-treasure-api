@@ -14,8 +14,6 @@ class ShowUser(BaseModel):
     class Config():
         orm_mode= True
 
-
-
   
 class Login(BaseModel):
     username: str
@@ -39,3 +37,9 @@ class ShowQuestions(BaseModel):
     class Config():
         orm_mode= True
     
+    
+class setQuestion(BaseModel):
+    island_id:int
+    question:str
+    solution:str
+
