@@ -10,7 +10,7 @@ class User(Base):
     name: Mapped[str] = mapped_column(String, nullable=False)
     email: Mapped[str] = mapped_column(String, unique=True, nullable=False)
     password: Mapped[str] = mapped_column(String, nullable=False)
-    progress: Mapped[dict] = mapped_column(JSON, default={"island_1": False, "island_2": False, "treasure": False})
+    progress: Mapped[dict] = mapped_column(JSON, default={"island_1": True, "island_2": False, "treasure": False})
 
 
 class Challenge(Base):
