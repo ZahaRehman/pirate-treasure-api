@@ -1,8 +1,10 @@
-from .. import database, Schemas, models
+from .. import database, Schemas, models,oauth2
 from sqlalchemy.orm import Session
 from fastapi import APIRouter,Depends,status, HTTPException
 from ..repository import user
 from ..hashing import Hash
+from ..database import get_db 
+from ..oauth2 import get_current_user
 
 get_db = database.get_db
 
@@ -13,7 +15,7 @@ router = APIRouter(
 )
 
 @router.post('/',response_model=Schemas.ShowUser)
-def create_user(request : Schemas.User, db: Session = Depends(get_db) ):
+def create_user(request : Schemas.User, db: Session = Depends(get_db)):
     return user.create(request,db)
  
  
